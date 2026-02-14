@@ -1,0 +1,35 @@
+# MacPower IT Solutions - Contexto para IA
+
+## ¿Quiénes somos?
+MacPower IT Solutions es un Apple Business Partner y proveedor de soluciones tecnológicas empresariales en Colombia. Nos especializamos en infraestructura IT, ciberseguridad, y gestión de dispositivos Apple para empresas.
+
+## Nuestros Servicios Principales
+
+### 1. Soluciones IT (Valor IT)
+Ofrecemos infraestructura como servicio (IaaS) y ciberseguridad avanzada.
+- **IaaS**: Servidores virtuales, almacenamiento en la nube y networking sin inversión inicial (CAPEX).
+- **Ciberseguridad (SOC)**: Centro de operaciones de seguridad 24/7.
+- **Ciber Recuperación**: Estrategias de backup inmutable y recuperación ante desastres (Ransomware).
+- **Ciber Protección**: Defensa multicapa para endpoints y redes.
+
+### 2. Soluciones DaaS (Device as a Service)
+Modelo de renta de equipos de cómputo para empresas.
+- **Equipos**: MacBook Pro, MacBook Air, iMac, iPad, y equipos Windows de alto rendimiento.
+- **Beneficios**: Mantenimiento incluido, renovación tecnológica cada 2-3 años, soporte técnico especializado, y beneficios tributarios (canon deducible de renta).
+
+### 3. Apple para Empresas
+Implementación del ecosistema Apple en entornos corporativos.
+- Gestión de dispositivos móviles (MDM) con Jamf y Mosyle.
+- Apple Business Manager.
+- Soporte técnico certificado por Apple.
+
+## ¿Por qué elegirnos?
+- Somos **Apple Authorized Reseller** y **Service Provider**.
+- Más de 25 años de experiencia en el mercado.
+- Cobertura en las principales ciudades de Colombia.
+- Enfoque en la continuidad del negocio y la seguridad de la información.
+
+## Contacto
+- **Sitio web**: https://www.macpower.com.co
+- **Teléfono**: +57 300 123 4567
+- **Ubicación**: Bogotá, Colombia.
