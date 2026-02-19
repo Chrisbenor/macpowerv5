@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Apple, Laptop, Tablet, Phone, Watch, ArrowRight } from "lucide-react";
+import { Apple, Laptop, Tablet, Phone, Watch, ArrowRight, Package } from "lucide-react";
 import { products } from "@/lib/data";
 
 const categories = [
@@ -48,18 +48,10 @@ export function ApplePartnerSection() {
                     className="hidden h-10 w-auto dark:block"
                   />
                 </div>
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lwifANTisLt6mzrcmFyXNJMfOphYm1.png"
-                  alt="Apple Business Partner & Authorized Service Provider"
-                  width={240}
-                  height={40}
-                  className="h-8 w-auto invert dark:invert-0"
-                />
+                
               </div>
 
-              <h2 className="mb-4 text-2xl font-bold text-foreground md:text-3xl">
-                Apple Business Partner
-              </h2>
+
               <p className="mb-6 text-muted-foreground leading-relaxed">
                 Integramos el ecosistema Apple en tu organización con garantía oficial, despliegue ágil y soporte especializado para empresas e individuos.
               </p>
@@ -93,7 +85,8 @@ export function ApplePartnerSection() {
                   </Link>
                 </Button>
                 <Button variant="outline" asChild>
-                  <Link href="/mac?type=accessories">
+                  <Link href="/mac?type=accessories" className="flex items-center gap-2">
+                    <Package className="h-4 w-4" />
                     Accesorios
                   </Link>
                 </Button>
@@ -116,7 +109,7 @@ export function ApplePartnerSection() {
                         src={product.image || "/placeholder.svg"}
                         alt={product.name}
                         fill
-                        className="object-cover p-2 transition-transform group-hover:scale-105"
+                        className="object-contain p-6 transition-transform group-hover:scale-105"
                       />
                       {product.badge && (
                         <Badge className="absolute left-2 top-2 bg-primary text-primary-foreground">

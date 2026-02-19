@@ -132,7 +132,7 @@ export function PortfolioForm() {
                 <SelectValue placeholder="Seleccionar solución" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="valor-it">Soluciones IT (Valor IT)</SelectItem>
+                <SelectItem value="valor-it">Soluciones IT</SelectItem>
                 <SelectItem value="daas">Soluciones DaaS</SelectItem>
                 <SelectItem value="otru">Otro</SelectItem>
               </SelectContent>

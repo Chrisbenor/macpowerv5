@@ -6,17 +6,17 @@ export function EducationEcosystem() {
     {
       icon: Laptop,
       title: "Tecnología intuitiva",
-      description: "Equipos fáciles de usar que los estudiantes adoptan rápidamente, mejorando el aprendizaje desde el primer día.",
+      description: "Dispositivos fáciles de usar que facilitan la adopción y reducen la curva de aprendizaje, optimizando el tiempo en el aula.",
     },
     {
       icon: Code,
       title: "Apple School Manager",
-      description: "Gestión centralizada de dispositivos, contenido y usuarios. Implementación simplificada sin complicaciones técnicas.",
+      description: "Administración centralizada de dispositivos, usuarios y contenido, integrada con MDM para control institucional y despliegue simplificado.",
     },
     {
       icon: Palette,
       title: "Apps educativas",
-      description: "Acceso a miles de aplicaciones diseñadas para potenciar la enseñanza y el aprendizaje colaborativo en el aula.",
+      description: "Herramientas especializadas que potencian el aprendizaje activo, la creatividad y la colaboración en el entorno académico.",
     },
   ];
 

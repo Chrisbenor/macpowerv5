@@ -20,7 +20,7 @@ export function AppleHero() {
             Descubre el ecosistema Apple completo: para ti, tu empresa o institución educativa. Equipos, servicios y soporte especializado.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild>
+            <Button size="lg" asChild className="bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold border-0 transition-all duration-300">
               <Link href="/mac-para-empresas">
                 Soluciones empresariales
                 <ArrowRight className="ml-2 h-5 w-5" />

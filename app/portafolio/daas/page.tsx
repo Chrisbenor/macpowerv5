@@ -7,7 +7,7 @@ import { Stepper } from "@/components/portafolio/shared/stepper";
 import { TabsSection } from "@/components/portafolio/shared/tabs-section";
 import { AccordionSection } from "@/components/portafolio/shared/accordion-section";
 import { CTABanner } from "@/components/portafolio/shared/cta-banner";
-import { PortfolioForm } from "@/components/portafolio/shared/portfolio-form";
+import { ContactFormSection } from "@/components/nosotros/contact-form-section";
 import { ImageHighlight } from "@/components/portafolio/shared/image-highlight";
 import { ServiceStructuredData, FAQStructuredData } from "@/components/seo-structured-data";
 import { Globe, DollarSign, Headphones, Clock, Monitor, Laptop } from "lucide-react";
@@ -189,7 +189,7 @@ export default function DaaSPage() {
         ctaHref="#contacto"
       />
 
-      <PortfolioForm />
+      <ContactFormSection />
     </div>
   );
 }

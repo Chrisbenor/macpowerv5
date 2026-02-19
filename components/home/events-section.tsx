@@ -76,12 +76,9 @@ export function EventsSection() {
                         <TypeIcon className="mr-1 h-3 w-3" />
                         {typeLabels[event.type]}
                       </Badge>
-                      <h3 className="mb-2 font-semibold text-foreground line-clamp-2">
+                      <h3 className="font-semibold text-foreground line-clamp-2">
                         {event.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2">
-                        {event.description}
-                      </p>
                     </CardContent>
                   </Card>
                 );

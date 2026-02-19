@@ -27,21 +27,13 @@ export function HistoryTabs() {
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">Nuestra Historia</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    25 años de experiencia nos ha permitido evolucionar la adopción inteligente de
-                    tecnología en un entorno empresarial colombiano. Lo que comenzó como un
-                    Reseller especializado evolucionó hasta convertirse en un referente en
-                    soluciones tecnológicas para empresas.
+                    Durante 27 años hemos impulsado la adopción inteligente de tecnología en entornos empresariales. Lo que inició como un reseller especializado evolucionó hasta convertirnos en un aliado estratégico en soluciones tecnológicas para compañías que buscan crecer y transformarse.
                   </p>
                   <p>
-                    Ser nombrados <strong className="text-foreground">Apple Authorized Service
-                    Provider</strong>, que nos permitió en el 2024 dar un paso clave: ampliamos nuestro
-                    portafolio para responder a los nuevos retos del mercado con tres líneas
-                    estratégicas: Soluciones Daas, Infraestructura, ciberseguridad y un Centro de
-                    Servicio Autorizado de alto nivel.
+                    Ser reconocidos como Apple Authorized Service Provider marcó un hito en nuestra evolución. En 2024 ampliamos el portafolio para responder a los nuevos desafíos del mercado, integrando líneas estratégicas como DaaS, IaaS, Ciber protección, Ciber Recuperación, servicios SOC y un centro de servicio autorizado de alto nivel.
                   </p>
                   <p>
-                    Hoy, MacPower IT Solutions, continúa escribiendo su historia de más de empresas que buscan
-                    crecer, innovar y operar con seguridad.
+                    Hoy, MacPower IT Solutions acompaña a organizaciones que quieren innovar, escalar y operar con seguridad, convirtiendo la tecnología en un motor real de crecimiento.
                   </p>
                 </div>
               </div>

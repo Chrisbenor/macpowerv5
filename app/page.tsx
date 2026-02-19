@@ -8,7 +8,7 @@ import { TestimonialsSection } from "@/components/home/testimonials-section";
 import { PartnersSection } from "@/components/home/partners-section";
 import { EventsSection } from "@/components/home/events-section";
 import { BlogSection } from "@/components/home/blog-section";
-import { CTASection } from "@/components/home/cta-section";
+import { ContactFormSection } from "@/components/nosotros/contact-form-section";
 import { StickyCTA } from "@/components/shared/sticky-cta";
 
 export default function HomePage() {
@@ -22,7 +22,7 @@ export default function HomePage() {
         <ApplePartnerSection />
         <PartnersSection />
         <EventsSection />
-        <CTASection />
+        <ContactFormSection />
       </main>
       <Footer />
       <StickyCTA />

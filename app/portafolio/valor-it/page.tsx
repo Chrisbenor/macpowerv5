@@ -6,8 +6,8 @@ import { Stepper } from "@/components/portafolio/shared/stepper";
 import { AccordionSection } from "@/components/portafolio/shared/accordion-section";
 import { MidCTA } from "@/components/portafolio/shared/mid-cta";
 import { CTABanner } from "@/components/portafolio/shared/cta-banner";
-import { PortfolioForm } from "@/components/portafolio/shared/portfolio-form";
 import { ServiceStructuredData, FAQStructuredData } from "@/components/seo-structured-data";
+import { ContactFormSection } from "@/components/nosotros/contact-form-section";
 import { ImageHighlight } from "@/components/portafolio/shared/image-highlight";
 import { 
   Server, 
@@ -23,7 +23,7 @@ import {
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Soluciones IT Empresariales (Valor IT) | Ciberseguridad e Infraestructura",
+  title: "Soluciones IT Empresariales | Ciberseguridad e Infraestructura",
   description: "Optimiza tu infraestructura tecnológica con soluciones IaaS, Ciberseguridad (SOC), y estrategias de recuperación ante desastres. Apple Business Partner.",
   alternates: {
     canonical: '/portafolio/valor-it',
@@ -153,7 +153,7 @@ export default function ValorITPage() {
       />
       <FAQStructuredData items={faqs} />
       <ValorITHero
-        title="Soluciones IT (Valor IT)"
+        title="Soluciones IT"
         subtitle="Infraestructura robusta + ciberseguridad + continuidad."
         primaryCtaText="Hablar con un asesor"
         primaryCtaHref="#contacto"
@@ -207,7 +207,7 @@ export default function ValorITPage() {
         ctaHref="#contacto"
       />
 
-      <PortfolioForm />
+      <ContactFormSection />
     </div>
   );
 }

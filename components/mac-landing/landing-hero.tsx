@@ -83,7 +83,7 @@ export function LandingHero() {
 
             {/* CTAs */}
             <div className="mb-8 flex flex-wrap gap-4">
-              <Button size="lg" asChild>
+              <Button size="lg" asChild className="bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold border-0 transition-all duration-300">
                 <Link href="#cotizar">
                   Solicitar cotización
                   <ArrowRight className="ml-2 h-4 w-4" />

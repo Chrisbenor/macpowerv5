@@ -43,43 +43,51 @@ export function PartnersSection() {
   }, []);
 
   return (
-    <section className="border-y border-border bg-card py-12">
+    <section className="border-y border-border bg-background py-12">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="flex flex-col items-center gap-8">
           {/* Text */}
           <div className="text-center">
-            <h2 className="text-xl font-semibold text-foreground md:text-2xl">
-              Aliados Estratégicos y Certificaciones
+            <h2 className="text-2xl font-semibold text-foreground md:text-3xl">
+              Marcas Estratégicas
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-2 text-base text-muted-foreground">
               Respaldados por las mejores marcas tecnológicas del mundo
             </p>
           </div>
 
           {/* Carousel */}
           <div className="relative w-full overflow-hidden py-6">
+            {/* Fade edges */}
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-background to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-background to-transparent" />
+
             <div
               ref={scrollRef}
-              className="flex gap-12 overflow-x-hidden overflow-y-hidden"
+              className="flex gap-16 overflow-x-hidden overflow-y-hidden"
               style={{ 
                 scrollBehavior: 'auto',
-                scrollbarWidth: 'none',  /* Firefox */
-                msOverflowStyle: 'none'  /* IE and Edge */
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
               }}
             >
               {/* Duplicate the logos array for seamless infinite scroll */}
               {[...partners, ...partners].map((partner, index) => (
                 <div
                   key={`${partner.name}-${index}`}
-                  className="flex-shrink-0 flex items-center justify-center"
+                  className="flex-shrink-0 flex items-center justify-center group"
                 >
-                  <div className="grayscale opacity-100 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-105">
+                  <div
+                    className="transition-all duration-300 ease-in-out
+                      brightness-0 invert opacity-55
+                      group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100 group-hover:scale-105"
+                  >
                     <Image
                       src={partner.logo}
                       alt={partner.name}
                       width={181}
                       height={112}
-                      className="h-16 w-auto object-contain"
+                      className="h-24 w-auto object-contain"
                     />
                   </div>
                 </div>

@@ -8,8 +8,10 @@ import { FeaturedCatalog } from "@/components/mac-landing/featured-catalog";
 import { CaseStudyCards } from "@/components/shared/case-study-cards";
 import { FAQSection } from "@/components/mac-landing/faq-section";
 import { LandingCTA } from "@/components/mac-landing/landing-cta";
+import { ContactFormSection } from "@/components/nosotros/contact-form-section";
 import { StickyCTA } from "@/components/shared/sticky-cta";
 import { OffersSection } from "@/components/shared/offers-section";
+import { MacMiniBanner } from "@/components/mac-landing/mac-mini-banner";
 
 export const metadata = {
   title: "Mac para Empresas | MacPower - Apple Business Partner",
@@ -23,6 +25,7 @@ export default function MacParaEmpresasPage() {
       <main>
         <LandingHero />
         <WhyMacSection />
+        <MacMiniBanner />
         <MacWizard />
 
         {/* Services section */}
@@ -46,7 +49,7 @@ export default function MacParaEmpresasPage() {
 
 
         <FAQSection />
-        <LandingCTA />
+        <ContactFormSection />
       </main>
       <Footer />
       <StickyCTA />

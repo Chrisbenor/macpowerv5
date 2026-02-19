@@ -10,6 +10,8 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
+  DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { SearchBar } from "@/components/shared/search-bar";
@@ -22,6 +24,8 @@ import {
   ShieldCheck,
   Cloud,
   FlaskConical,
+  Calculator,
+  Wrench,
 } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
@@ -44,7 +48,15 @@ const navigation = [
     children: [
       { name: "Soluciones IT", href: "/portafolio/valor-it", icon: ShieldCheck },
       { name: "Soluciones DaaS", href: "/portafolio/daas", icon: Cloud },
-      { name: "LabPower", href: "/labpower", icon: FlaskConical },
+      {
+        name: "LabPower",
+        href: "/labpower",
+        icon: FlaskConical,
+        children: [
+          { name: "Servicios LabPower", href: "/labpower", icon: Wrench },
+          { name: "Herramientas", href: "/labpower/herramientas", icon: Calculator },
+        ],
+      },
     ],
   },
 ];
@@ -96,16 +108,7 @@ export function Header() {
           </Link>
           
           {/* Apple Badges - transparent background, visible on desktop */}
-          <div className="hidden lg:flex items-center">
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lwifANTisLt6mzrcmFyXNJMfOphYm1.png"
-              alt="Apple Business Partner & Authorized Service Provider"
-              width={240}
-              height={40}
-              className="h-8 w-auto invert dark:invert-0"
-              priority
-            />
-          </div>
+       
         </div>
 
         {/* Desktop Navigation */}
@@ -125,11 +128,37 @@ export function Header() {
                     <ChevronDown className="h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent
+              <DropdownMenuContent
                   align="start"
                   className="w-64 bg-popover/95 backdrop-blur-xl border border-border/50 shadow-2xl rounded-xl p-2 animate-in fade-in-0 zoom-in-95"
                 >
-                  {item.children.map((child) => (
+                  {item.children.map((child: any) =>
+                    child.children ? (
+                      // Child with nested sub-items (e.g. LabPower)
+                      <div key={child.name}>
+                        <DropdownMenuSeparator className="my-1" />
+                        <DropdownMenuLabel className="flex items-center gap-2 px-4 py-1.5 text-xs text-muted-foreground font-semibold uppercase tracking-wider">
+                          {child.icon && <child.icon className="h-3.5 w-3.5 text-[#00ffe3]" />}
+                          {child.name}
+                        </DropdownMenuLabel>
+                        {child.children.map((sub: any) => (
+                          <DropdownMenuItem key={sub.name} asChild className="focus:bg-transparent p-0">
+                            <Link
+                              href={sub.href}
+                              className={cn(
+                                "flex items-center gap-3 cursor-pointer w-full rounded-md px-4 py-2.5 text-sm text-popover-foreground transition-all duration-300",
+                                "hover:bg-gradient-to-r hover:from-[#00ffe3] hover:to-[#00a6d6] hover:text-black hover:pl-6 hover:shadow-lg",
+                                "focus:bg-gradient-to-r focus:from-[#00ffe3] focus:to-[#00a6d6] focus:text-black focus:pl-6",
+                                mounted && pathname === sub.href && "bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] text-black font-medium pl-6 shadow-md"
+                              )}
+                            >
+                              {sub.icon && <sub.icon className="h-4 w-4 shrink-0" />}
+                              {sub.name}
+                            </Link>
+                          </DropdownMenuItem>
+                        ))}
+                      </div>
+                    ) : (
                       <DropdownMenuItem key={child.name} asChild className="focus:bg-transparent p-0">
                         <Link
                           href={child.href}
@@ -140,13 +169,12 @@ export function Header() {
                             mounted && pathname === child.href && "bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] text-black font-medium pl-6 shadow-md"
                           )}
                         >
-                          {child.icon && (
-                            <child.icon className="h-4 w-4 shrink-0" />
-                          )}
+                          {child.icon && <child.icon className="h-4 w-4 shrink-0" />}
                           {child.name}
                         </Link>
                       </DropdownMenuItem>
-                  ))}
+                    )
+                  )}
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
@@ -203,20 +231,41 @@ export function Header() {
                           <div className="px-3 py-2 text-base font-medium text-foreground">
                             {item.name}
                           </div>
-                          <div className="ml-4 mt-1 flex flex-col gap-1 border-l border-border pl-4">
-                            {item.children.map((child) => (
-                              <Link
-                                key={child.name}
-                                href={child.href}
-                                onClick={() => setMobileOpen(false)}
-                                className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
-                              >
-                                {child.icon && (
-                                  <child.icon className="h-4 w-4 text-primary" />
-                                )}
-                                {child.name}
-                              </Link>
-                            ))}
+                        <div className="ml-4 mt-1 flex flex-col gap-1 border-l border-border pl-4">
+                            {item.children.map((child: any) =>
+                              child.children ? (
+                                // Nested LabPower group
+                                <div key={child.name}>
+                                  <div className="flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-[#00ffe3] uppercase tracking-wider">
+                                    {child.icon && <child.icon className="h-3 w-3" />}
+                                    {child.name}
+                                  </div>
+                                  <div className="ml-3 flex flex-col gap-0.5 border-l border-border/50 pl-3">
+                                    {child.children.map((sub: any) => (
+                                      <Link
+                                        key={sub.name}
+                                        href={sub.href}
+                                        onClick={() => setMobileOpen(false)}
+                                        className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
+                                      >
+                                        {sub.icon && <sub.icon className="h-4 w-4 text-primary" />}
+                                        {sub.name}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+                              ) : (
+                                <Link
+                                  key={child.name}
+                                  href={child.href}
+                                  onClick={() => setMobileOpen(false)}
+                                  className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
+                                >
+                                  {child.icon && <child.icon className="h-4 w-4 text-primary" />}
+                                  {child.name}
+                                </Link>
+                              )
+                            )}
                           </div>
                         </>
                       ) : (

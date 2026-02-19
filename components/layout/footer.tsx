@@ -77,10 +77,7 @@ export function Footer() {
             <p className="mt-4 text-sm text-muted-foreground">
               Somos tu aliado para facilitar la inversión de soluciones IT que optimicen los procesos de tu empresa.
             </p>
-            <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-              <Apple className="h-4 w-4" />
-              <span>Apple Authorized Reseller</span>
-            </div>
+           
             <div className="mt-6 flex gap-3">
               {socialLinks.map((social) => (
                 <Link

@@ -5,23 +5,23 @@ export function EducationHowWeDoIt() {
   const steps = [
     {
       number: "01",
-      title: "Diagnóstico",
-      description: "Evaluamos infraestructura actual, necesidades pedagógicas y objetivos institucionales.",
+      title: "Estrategia y diagnóstico",
+      description: "Analizamos infraestructura, modelo pedagógico y objetivos institucionales para diseñar una arquitectura Apple alineada a la visión académica.",
     },
     {
       number: "02",
-      title: "Implementación",
-      description: "Configuración de dispositivos, Apple School Manager y sincronización con sistemas educativos.",
+      title: "Despliegue Inteligente",
+      description: "Implementamos dispositivos, Apple School Manager y MDM con configuración automatizada (zero-touch), integrando usuarios, contenidos y políticas desde el primer día.",
     },
     {
       number: "03",
-      title: "Capacitación",
-      description: "Programas de entrenamiento para docentes, administrativos y estudiantes.",
+      title: "Adopción y capacitación",
+      description: "Capacitamos docentes, administrativos y equipos TI para garantizar uso pedagógico real, no solo implementación técnica.",
     },
     {
       number: "04",
-      title: "Soporte continuo",
-      description: "Mesa de ayuda especializada, actualizaciones y seguimiento de uso pedagógico.",
+      title: "Evolución y soporte continuo",
+      description: "Mesa de ayuda especializada, actualizaciones y acompañamiento estratégico para asegurar continuidad, escalabilidad y mejora constante.",
     },
   ];
 

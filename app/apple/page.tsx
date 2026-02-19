@@ -4,6 +4,7 @@ import { AppleHero } from "@/components/apple/apple-hero";
 import { AppleInsights } from "@/components/apple/apple-insights";
 import { AppleCategories } from "@/components/apple/apple-categories";
 import { StickyCTA } from "@/components/shared/sticky-cta";
+import { ContactFormSection } from "@/components/nosotros/contact-form-section";
 
 export const metadata = {
   title: "Apple | MacPower - Apple Business Partner",
@@ -18,6 +19,7 @@ export default function ApplePage() {
         <AppleHero />
         <AppleInsights />
         <AppleCategories />
+        <ContactFormSection />
       </main>
       <Footer />
       <StickyCTA />

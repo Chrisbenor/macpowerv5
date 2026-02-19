@@ -11,7 +11,7 @@ const solutions = [
     icon: Cloud,
     href: "/portafolio/daas",
     benefits: ["Mantenimiento, soporte y renovación incluidos", "Gestión integral del ciclo de vida", "Costos predecibles y operación sin interrupciones"],
-    accentColor: "#00ffe3",
+    accentColor: "#FF8A00",
   },
   {
     id: "valor-it",
@@ -20,7 +20,7 @@ const solutions = [
     icon: Shield,
     href: "/portafolio/valor-it",
     benefits: ["SOC 24/7 y respuesta en tiempo real", "Recuperación ante desastres y protección avanzada", "Escalabilidad, bajas latencias y nube accesible"],
-    accentColor: "#00a6d6",
+    accentColor: "#00CED1",
   },
   {
     id: "apple",
@@ -30,7 +30,7 @@ const solutions = [
     href: "/mac-para-empresas",
     benefits: ["Despliegue automatizado (Zero-Touch)", "Gestión centralizada con MDM", "Seguridad nativa y administración eficiente", "Soporte especializado Apple"],
     featured: true,
-    accentColor: "#00ffe3",
+    accentColor: "#00B5AD",
   },
   {
     id: "labpower",
@@ -39,7 +39,7 @@ const solutions = [
     icon: Wrench,
     href: "/labpower",
     benefits: ["Técnicos certificados y repuestos originales", "Garantías extendidas y daño accidental", "Procesos seguros y trazables"],
-    accentColor: "#FF8A00",
+    accentColor: "#1E90FF",
   },
 ];
 

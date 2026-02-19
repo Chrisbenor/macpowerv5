@@ -109,13 +109,13 @@ export function WhyMacSection() {
                     <h3 className="text-xl font-bold text-foreground mb-1">
                       {pillar.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground mb-2">
+                    <p className="text-sm text-foreground/75 mb-2">
                       {pillar.subtitle}
                     </p>
                   </div>
                 </div>
 
-                <p className="text-sm italic text-muted-foreground mb-6">
+                <p className="text-sm italic text-foreground/70 mb-6">
                   {pillar.description}
                 </p>
 
@@ -124,7 +124,7 @@ export function WhyMacSection() {
                   {pillar.bullets.map((bullet, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start gap-3 text-sm text-muted-foreground"
+                      className="flex items-start gap-3 text-sm text-foreground/80"
                     >
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
                       {bullet}
@@ -153,7 +153,7 @@ export function WhyMacSection() {
 
         {/* Bottom CTA */}
         <div className="mt-12 text-center">
-          <p className="mb-4 text-muted-foreground">
+          <p className="mb-4 text-foreground/70">
             ¿Listo para dar el siguiente paso?
           </p>
           <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>

@@ -50,7 +50,7 @@ export function ValorITHero({
             <Button 
               asChild 
               size="lg" 
-              className="rounded-full px-8 bg-accent text-accent-foreground hover:opacity-90"
+              className="rounded-full px-8 bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold border-0 transition-all duration-300"
             >
               <Link href={primaryCtaHref}>{primaryCtaText}</Link>
             </Button>

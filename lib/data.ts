@@ -1573,7 +1573,7 @@ export const events: Event[] = [
     month: "Julio",
     day: "30",
     type: "evento",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop",
+    image: "/images/colombia.png",
     description: "Evento presencial sobre transformación digital con Apple en empresas colombianas."
   },
   {
@@ -1583,7 +1583,7 @@ export const events: Event[] = [
     month: "Agosto",
     day: "14",
     type: "webinar",
-    image: "https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&h=400&fit=crop",
+    image: "/images/webinar.png",
     description: "Aprenda a proteger datos corporativos con las herramientas de seguridad de macOS."
   },
   {
@@ -1593,7 +1593,7 @@ export const events: Event[] = [
     month: "Septiembre",
     day: "18",
     type: "evento",
-    image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&h=400&fit=crop",
+    image: "/images/desayuno.png",
     description: "Networking y presentación de soluciones MDM para líderes de TI."
   },
   {
@@ -1603,7 +1603,7 @@ export const events: Event[] = [
     month: "Septiembre",
     day: "23",
     type: "capacitacion",
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop",
+    image: "/images/asus.png",
     description: "Sesión técnica sobre integración de periféricos y accesorios profesionales."
   }
 ];
