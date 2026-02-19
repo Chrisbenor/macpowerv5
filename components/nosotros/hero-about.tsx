@@ -6,7 +6,7 @@ import Link from "next/link";
 const slide = {
   title: "Pensamos diferente",
   description:
-    "En MacPower IT Solutions impulsamos la forma en que personas y empresas usan la tecnología para operar, crecer y proteger su negocio. Con más de 27 años de experiencia, somos Apple Business Partner y Centro de Servicio Autorizado Apple, integrando soluciones en venta y renta de equipos, infraestructura y ciberseguridad, con un acompañamiento confiable de inicio a fin.",
+    "En MacPower IT Solutions impulsamos la forma en que personas y empresas usan la tecnología para operar, crecer y proteger su negocio. Con más de 25 años de experiencia, somos Apple Business Partner y Centro de Servicio Autorizado Apple, integrando soluciones en venta y renta de equipos, infraestructura y ciberseguridad, con un acompañamiento confiable de inicio a fin.",
   image:
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Banner-principal-1500x600px-B5IEyaIUwUlI4Umh85lWg2sz6P7qBO.png",
 };
