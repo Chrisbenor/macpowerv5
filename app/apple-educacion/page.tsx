@@ -8,6 +8,7 @@ import { EducationBenefits } from "@/components/apple-education/education-benefi
 import { EducationTarget } from "@/components/apple-education/education-target";
 import { ContactFormSection } from "@/components/nosotros/contact-form-section";
 import { StickyCTA } from "@/components/shared/sticky-cta";
+import { EducationVisualBanner } from "@/components/apple-education/education-visual-banner";
 
 export const metadata = {
   title: "Apple para Educación | MacPower - Apple Business Partner",
@@ -23,6 +24,7 @@ export default function EducationPage() {
         <EducationEcosystem />
         <EducationHowWeDoIt />
         <EducationServices />
+        <EducationVisualBanner />
         <EducationBenefits />
         <EducationTarget />
         <ContactFormSection />

@@ -41,7 +41,7 @@ export function HeroAbout() {
       <div className="relative mx-auto max-w-7xl px-4 lg:px-6 z-10 w-full pt-20">
         <div className="max-w-2xl">
           <h1 className="mb-4 text-3xl font-bold leading-tight text-white drop-shadow-2xl md:text-4xl lg:text-5xl text-balance text-left">
-            {slide.title}
+            Pensamos <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffe3] to-[#00a6d6]">diferente</span>
           </h1>
           <p className="text-lg text-gray-200 text-pretty leading-relaxed text-left">
             {slide.description}

@@ -107,7 +107,7 @@ export function LandingHero() {
 
             <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-xl">
               <Image
-                src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=800&fit=crop"
+                src="/images/mac.png"
                 alt="Apple para empresas - Equipo profesional trabajando"
                 fill
                 className="object-cover opacity-90 mix-blend-luminosity"
@@ -121,9 +121,7 @@ export function LandingHero() {
               <div className="absolute right-0 top-0 h-1/2 w-1/2 bg-gradient-to-br from-white/5 to-transparent blur-2xl" />
 
               {/* Video play button overlay - with glassmorphism */}
-              <button className="group absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-green-500/20 backdrop-blur-md transition-all hover:scale-110 hover:border-green-400/40 hover:bg-green-500/30">
-                <Play className="ml-1 h-8 w-8 text-white drop-shadow-lg" />
-              </button>
+              
             </div>
 
             {/* Floating card - Glassmorphic with subtle animation */}

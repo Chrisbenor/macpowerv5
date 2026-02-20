@@ -22,14 +22,7 @@ export default function HerramientasPage() {
         {/* Page Hero */}
         <section className="py-14 lg:py-20 border-b border-border/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
-              <Link href="/" className="hover:text-foreground transition-colors">Inicio</Link>
-              <span>/</span>
-              <Link href="/labpower" className="hover:text-foreground transition-colors">LabPower</Link>
-              <span>/</span>
-              <span className="text-foreground">Herramientas</span>
-            </div>
+
 
             <div className="flex flex-col items-center text-center gap-4">
               <Badge className="px-3 py-1 text-xs font-semibold bg-[#00ffe3]/10 text-[#00ffe3] border border-[#00ffe3]/30 rounded-full">
@@ -40,7 +33,7 @@ export default function HerramientasPage() {
                   <FlaskConical className="h-6 w-6 text-[#00ffe3]" />
                 </div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
-                  Herramientas de Servicio
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffe3] to-[#00a6d6]">Herramientas</span> de Servicio
                 </h1>
               </div>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">

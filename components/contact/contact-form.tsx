@@ -1,12 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
@@ -14,72 +12,64 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { trackEvent } from "@/lib/analytics";
-
-interface ContactFormData {
-  name: string;
-  email: string;
-  phone: string;
-  company: string;
-  companySize: string;
-  interest: string;
-  message: string;
-}
-
-const companySizes = [
-  { value: "1-10", label: "1-10 empleados" },
-  { value: "11-50", label: "11-50 empleados" },
-  { value: "51-200", label: "51-200 empleados" },
-  { value: "201-500", label: "201-500 empleados" },
-  { value: "500+", label: "Más de 500 empleados" },
-];
-
-const interests = [
-  { value: "quote", label: "Cotización de equipos" },
-  { value: "mdm", label: "Gestión MDM / ABM" },
-  { value: "migration", label: "Migración a Mac" },
-  { value: "support", label: "Soporte técnico" },
-  { value: "training", label: "Capacitación" },
-  { value: "other", label: "Otro" },
-];
+import { CheckCircle } from "lucide-react";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const { register, handleSubmit, formState: { errors }, setValue, reset } = useForm<ContactFormData>();
+  const [empresa, setEmpresa] = useState("");
+  const [formData, setFormData] = useState({
+    nombreCompleto: "",
+    email: "",
+    telefono: "",
+    cargo: "",
+    solucion: "",
+    mensaje: "",
+    periodo: "",
+    presupuesto: "",
+    contacto: "",
+  });
 
-  const onSubmit = async (data: ContactFormData) => {
+  const showBANT = empresa.trim().length > 0;
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setStatus("loading");
-    trackEvent("lead_form_submitted", {
-      form_type: "contact_enterprise",
-      company_size: data.companySize,
-      interest: data.interest,
-    });
-
+    console.log("[v0] ContactForm submitted", { empresa, ...formData, showBANT });
+    
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
     
-    // For demo purposes, always succeed
     setStatus("success");
-    reset();
   };
 
   if (status === "success") {
     return (
-      <div className="bg-card rounded-2xl border border-border p-8 text-center">
+      <div className="bg-card rounded-2xl border border-border p-8 text-center h-full flex flex-col justify-center">
         <div className="mx-auto w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mb-6">
           <CheckCircle className="h-8 w-8 text-green-500" />
         </div>
         <h3 className="text-2xl font-bold text-foreground mb-2">
-          Mensaje enviado
+          ¡Mensaje enviado correctamente!
         </h3>
         <p className="text-muted-foreground mb-6">
-          Gracias por contactarnos. Un asesor se pondrá en contacto contigo en las próximas 24 horas hábiles.
-        </p>
-        <p className="text-sm text-muted-foreground mb-6">
-          Referencia: #MP-{Date.now().toString(36).toUpperCase()}
+          Pronto uno de nuestros asesores se comunicará contigo.
         </p>
         <Button 
-          onClick={() => setStatus("idle")}
+          onClick={() => {
+            setStatus("idle");
+            setEmpresa("");
+            setFormData({
+              nombreCompleto: "",
+              email: "",
+              telefono: "",
+              cargo: "",
+              solucion: "",
+              mensaje: "",
+              periodo: "",
+              presupuesto: "",
+              contacto: "",
+            });
+          }}
           variant="outline"
           className="border-border bg-transparent"
         >
@@ -90,174 +80,247 @@ export function ContactForm() {
   }
 
   return (
-    <div className="bg-card rounded-2xl border border-border p-8">
-      <h2 className="text-2xl font-bold text-foreground mb-2">
-        Formulario de contacto
+    <div className="bg-card rounded-2xl border border-border p-6 md:p-8">
+      <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-2 text-balance">
+        ¿Listo para transformar tu empresa?
       </h2>
-      <p className="text-muted-foreground mb-4">
-        Completa el formulario y te responderemos lo antes posible.
+      <p className="text-muted-foreground mb-8">
+        Cuéntanos tus necesidades y te ayudaremos a encontrar la mejor solución
       </p>
-      
-      {/* Response times */}
-      <div className="bg-secondary/50 rounded-lg p-4 mb-8 border border-border">
-        <p className="text-sm font-medium text-foreground mb-2">Tiempos de respuesta:</p>
-        <ul className="space-y-1 text-xs text-muted-foreground">
-          <li className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            Primera respuesta: 4 horas hábiles
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            Cotización: 24-48 horas
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            Seguimiento: 48 horas
-          </li>
-        </ul>
-      </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        {/* Name & Email Row */}
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid sm:grid-cols-2 gap-4">
+          {/* Nombre Completo */}
           <div className="space-y-2">
-            <Label htmlFor="name">Nombre completo *</Label>
+            <Label htmlFor="nombreCompleto">
+              Nombre Completo <span className="text-destructive">*</span>
+            </Label>
             <Input
-              id="name"
-              placeholder="Tu nombre"
+              id="nombreCompleto"
+              placeholder="Valentina Daza"
+              required
               className="bg-secondary border-border"
-              {...register("name", { required: "El nombre es requerido" })}
+              value={formData.nombreCompleto}
+              onChange={(e) =>
+                setFormData({ ...formData, nombreCompleto: e.target.value })
+              }
             />
-            {errors.name && (
-              <p className="text-sm text-destructive">{errors.name.message}</p>
-            )}
           </div>
+
+          {/* Email */}
           <div className="space-y-2">
-            <Label htmlFor="email">Correo electrónico *</Label>
+            <Label htmlFor="email">
+              Email <span className="text-destructive">*</span>
+            </Label>
             <Input
               id="email"
               type="email"
-              placeholder="tu@empresa.com"
+              placeholder="vdaza@macpower.com.co"
+              required
               className="bg-secondary border-border"
-              {...register("email", { 
-                required: "El email es requerido",
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: "Email inválido"
-                }
-              })}
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
             />
-            {errors.email && (
-              <p className="text-sm text-destructive">{errors.email.message}</p>
-            )}
           </div>
         </div>
 
-        {/* Phone & Company Row */}
         <div className="grid sm:grid-cols-2 gap-4">
+          {/* Teléfono */}
           <div className="space-y-2">
-            <Label htmlFor="phone">Teléfono *</Label>
+            <Label htmlFor="telefono">Teléfono</Label>
             <Input
-              id="phone"
-              type="tel"
-              placeholder="+57 300 123 4567"
+              id="telefono"
+              placeholder="+57 3013054079"
               className="bg-secondary border-border"
-              {...register("phone", { required: "El teléfono es requerido" })}
+              value={formData.telefono}
+              onChange={(e) =>
+                setFormData({ ...formData, telefono: e.target.value })
+              }
             />
-            {errors.phone && (
-              <p className="text-sm text-destructive">{errors.phone.message}</p>
-            )}
           </div>
+
+          {/* Empresa */}
           <div className="space-y-2">
-            <Label htmlFor="company">Empresa *</Label>
+            <Label htmlFor="empresa">Empresa</Label>
             <Input
-              id="company"
+              id="empresa"
               placeholder="Nombre de tu empresa"
               className="bg-secondary border-border"
-              {...register("company", { required: "La empresa es requerida" })}
+              value={empresa}
+              onChange={(e) => setEmpresa(e.target.value)}
             />
-            {errors.company && (
-              <p className="text-sm text-destructive">{errors.company.message}</p>
-            )}
           </div>
         </div>
 
-        {/* Company Size & Interest Row */}
-        <div className="grid sm:grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label>Tamaño de empresa</Label>
-            <Select onValueChange={(value) => setValue("companySize", value)}>
-              <SelectTrigger className="bg-secondary border-border">
-                <SelectValue placeholder="Selecciona" />
-              </SelectTrigger>
-              <SelectContent>
-                {companySizes.map((size) => (
-                  <SelectItem key={size.value} value={size.value}>
-                    {size.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="space-y-2">
-            <Label>¿En qué te podemos ayudar?</Label>
-            <Select onValueChange={(value) => setValue("interest", value)}>
-              <SelectTrigger className="bg-secondary border-border">
-                <SelectValue placeholder="Selecciona" />
-              </SelectTrigger>
-              <SelectContent>
-                {interests.map((interest) => (
-                  <SelectItem key={interest.value} value={interest.value}>
-                    {interest.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+        {/* BANT Fields - Show when empresa is filled */}
+        <div
+          className="overflow-hidden transition-all duration-300"
+          style={{
+            maxHeight: showBANT ? "500px" : "0",
+            opacity: showBANT ? 1 : 0,
+          }}
+        >
+          {showBANT && (
+            <div className="space-y-6 pt-2">
+              {/* Cargo */}
+              <div className="space-y-2">
+                <Label htmlFor="cargo">Cargo</Label>
+                <Input
+                  id="cargo"
+                  placeholder="Personal de Compras"
+                  className="bg-secondary border-border"
+                  value={formData.cargo}
+                  onChange={(e) =>
+                    setFormData({ ...formData, cargo: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Message */}
+        {/* Qué solución estás buscando */}
         <div className="space-y-2">
-          <Label htmlFor="message">Mensaje</Label>
+          <Label htmlFor="solucion">¿Qué solución estás buscando?</Label>
+          <Select
+            value={formData.solucion}
+            onValueChange={(value) =>
+              setFormData({ ...formData, solucion: value })
+            }
+          >
+            <SelectTrigger id="solucion" className="bg-secondary border-border">
+              <SelectValue placeholder="Selecciona una opción" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="productos-apple">Productos Apple</SelectItem>
+              <SelectItem value="soluciones-it">Soluciones IT</SelectItem>
+              <SelectItem value="daas">Device as a Service (DaaS)</SelectItem>
+              <SelectItem value="labpower">Servicio Técnico LabPower</SelectItem>
+              <SelectItem value="consultoria">Consultoría</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        {/* Cómo podemos ayudarte */}
+        <div className="space-y-2">
+          <Label htmlFor="mensaje">
+            ¿Cómo te podemos ayudar? <span className="text-destructive">*</span>
+          </Label>
           <Textarea
-            id="message"
-            placeholder="Cuéntanos más sobre tu proyecto o necesidad..."
+            id="mensaje"
+            placeholder="Describe tu necesidad..."
+            rows={4}
+            required
             className="bg-secondary border-border min-h-32 resize-none"
-            {...register("message")}
+            value={formData.mensaje}
+            onChange={(e) =>
+              setFormData({ ...formData, mensaje: e.target.value })
+            }
           />
         </div>
 
-        {/* Error Alert */}
-        {status === "error" && (
-          <div className="flex items-center gap-2 p-4 rounded-lg bg-destructive/10 text-destructive">
-            <AlertCircle className="h-5 w-5" />
-            <p className="text-sm">Hubo un error al enviar. Por favor intenta de nuevo.</p>
-          </div>
-        )}
+        {/* BANT Fields - Period and Budget */}
+        <div
+          className="overflow-hidden transition-all duration-300"
+          style={{
+            maxHeight: showBANT ? "300px" : "0",
+            opacity: showBANT ? 1 : 0,
+          }}
+        >
+          {showBANT && (
+            <div className="grid sm:grid-cols-2 gap-4 pt-2">
+              {/* Periodo */}
+              <div className="space-y-2">
+                <Label htmlFor="periodo">
+                  ¿En qué periodo piensas implementarlo?
+                </Label>
+                <Select
+                  value={formData.periodo}
+                  onValueChange={(value) =>
+                    setFormData({ ...formData, periodo: value })
+                  }
+                >
+                  <SelectTrigger id="periodo" className="bg-secondary border-border">
+                    <SelectValue placeholder="Selecciona" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="q1">Q1 (Ene - Mar)</SelectItem>
+                    <SelectItem value="q2">Q2 (Abr - Jun)</SelectItem>
+                    <SelectItem value="q3">Q3 (Jul - Sep)</SelectItem>
+                    <SelectItem value="q4">Q4 (Oct - Dic)</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Presupuesto */}
+              <div className="space-y-2">
+                <Label className="block mb-2">¿Cuenta con Presupuesto?</Label>
+                <div className="flex gap-4">
+                  <label className="flex items-center gap-2 cursor-pointer bg-secondary px-4 py-2 rounded-md border border-border transition-colors w-full">
+                    <input
+                      type="radio"
+                      name="presupuesto"
+                      value="si"
+                      checked={formData.presupuesto === "si"}
+                      onChange={(e) =>
+                        setFormData({ ...formData, presupuesto: e.target.value })
+                      }
+                      className="w-4 h-4 accent-primary"
+                    />
+                    <span className="text-sm">Sí</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer bg-secondary px-4 py-2 rounded-md border border-border transition-colors w-full">
+                    <input
+                      type="radio"
+                      name="presupuesto"
+                      value="no"
+                      checked={formData.presupuesto === "no"}
+                      onChange={(e) =>
+                        setFormData({ ...formData, presupuesto: e.target.value })
+                      }
+                      className="w-4 h-4 accent-primary"
+                    />
+                    <span className="text-sm">No</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Cómo se contactó */}
+        <div className="space-y-2">
+          <Label htmlFor="contacto">Cómo se contactó con nosotros</Label>
+          <Select
+            value={formData.contacto}
+            onValueChange={(value) =>
+              setFormData({ ...formData, contacto: value })
+            }
+          >
+            <SelectTrigger id="contacto" className="bg-secondary border-border">
+              <SelectValue placeholder="Selecciona" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="web">Web</SelectItem>
+              <SelectItem value="redes-sociales">Redes Sociales</SelectItem>
+              <SelectItem value="referido">Referido</SelectItem>
+              <SelectItem value="evento">Evento</SelectItem>
+              <SelectItem value="otro">Otro</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
 
         {/* Submit Button */}
-        <Button 
-          type="submit" 
-          size="lg" 
-          className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+        <Button
+          type="submit"
+          size="lg"
+          className="w-full bg-gradient-to-r from-[#00ffe3] to-[#00a6d6] hover:from-[#00e6cc] hover:to-[#0090bb] text-black font-bold"
           disabled={status === "loading"}
         >
-          {status === "loading" ? (
-            <>
-              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Enviando...
-            </>
-          ) : (
-            <>
-              <Send className="mr-2 h-5 w-5" />
-              Enviar mensaje
-            </>
-          )}
+          {status === "loading" ? "Enviando..." : "Enviar mensaje"}
         </Button>
-
-        <p className="text-xs text-center text-muted-foreground">
-          Al enviar este formulario, aceptas nuestra política de privacidad y el tratamiento de tus datos.
-        </p>
       </form>
     </div>
   );

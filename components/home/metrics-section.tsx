@@ -4,8 +4,8 @@ import { useEffect, useState, useRef } from "react";
 
 const metricsDisplay = [
   { value: 15, suffix: "M+", label: "USD ventas anuales" },
-  { value: 25, suffix: "+", label: "Años de experiencia" },
-  { value: 1000, suffix: "+", label: "Proyectos ejecutados" },
+  { value: +25, suffix: "+", label: "Años de experiencia" },
+  { value: +1000, suffix: "+", label: "Proyectos ejecutados" },
   { value: 8, suffix: "", label: "Países +20 ciudades en la región" },
 ];
 

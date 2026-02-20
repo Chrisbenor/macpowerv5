@@ -153,7 +153,7 @@ export default function ValorITPage() {
       />
       <FAQStructuredData items={faqs} />
       <ValorITHero
-        title="Soluciones IT"
+        title={<><span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffe3] to-[#00a6d6]">Soluciones </span>IT</>}
         subtitle="Infraestructura robusta + ciberseguridad + continuidad."
         primaryCtaText="Hablar con un asesor"
         primaryCtaHref="#contacto"
@@ -193,6 +193,7 @@ export default function ValorITPage() {
       <ImageHighlight 
         imageSrc="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/banner-complemento-1500x600px%20%281%29-y3qiHaveyxXsXsxJEZkSiJK1kmYVV2.png"
         text="Seguridad y eficiencia sin compromisos."
+        className="min-h-[240px] md:min-h-[300px] lg:min-h-[360px] py-12 md:py-16"
       />
 
       <AccordionSection 

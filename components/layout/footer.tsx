@@ -30,13 +30,7 @@ const footerLinks = {
       { name: "Eventos", href: "/#eventos" },
     ],
   },
-  contacto: {
-    title: "Contacto",
-    links: [
-      { name: "Formulario de contacto", href: "/#contacto" },
-      { name: "WhatsApp", href: "https://wa.me/573001234567" },
-    ],
-  },
+  
 };
 
 const socialLinks = [

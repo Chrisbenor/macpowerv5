@@ -93,20 +93,23 @@ export function WhyMacSection() {
             return (
               <div
                 key={pillar.id}
-                className="group relative bg-card rounded-2xl border border-border p-8 hover:border-primary/50 transition-all"
+                className="group relative bg-card rounded-2xl border border-border p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/50"
               >
+                {/* Hover Gradient Background */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+
                 {/* Number Badge */}
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12 z-20">
                   {index + 1}
                 </div>
 
                 {/* Icon & Title */}
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="p-3 rounded-xl bg-primary/10 text-primary">
+                <div className="flex items-start gap-4 mb-4 relative z-10">
+                  <div className="p-3 rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110 group-hover:shadow-md">
                     <Icon className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-foreground mb-1">
+                    <h3 className="text-xl font-bold text-foreground mb-1 transition-colors duration-300 group-hover:text-primary">
                       {pillar.title}
                     </h3>
                     <p className="text-sm text-foreground/75 mb-2">
@@ -115,37 +118,40 @@ export function WhyMacSection() {
                   </div>
                 </div>
 
-                <p className="text-sm italic text-foreground/70 mb-6">
+                <p className="text-sm italic text-foreground/70 mb-6 relative z-10">
                   {pillar.description}
                 </p>
 
                 {/* Bullets */}
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-3 mb-6 relative z-10">
                   {pillar.bullets.map((bullet, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start gap-3 text-sm text-foreground/80"
+                      className="flex items-start gap-3 text-sm text-foreground/80 transition-transform duration-300 group-hover:translate-x-1"
+                      style={{ transitionDelay: `${idx * 40}ms` }}
                     >
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0 transition-transform duration-300 group-hover:scale-150" />
                       {bullet}
                     </li>
                   ))}
                 </ul>
 
                 {/* CTA */}
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="p-0 h-auto text-primary hover:text-primary/80 hover:bg-transparent"
-                  onClick={() => handleContactClick(pillar.id)}
-                  asChild
-                >
-                  <a href="/contacto-empresas">
-                    <MessageCircle className="mr-2 h-4 w-4" />
-                    Hablar con un asesor
-                    <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </Button>
+                <div className="relative z-10">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="p-0 h-auto text-primary hover:text-primary/80 hover:bg-transparent"
+                    onClick={() => handleContactClick(pillar.id)}
+                    asChild
+                  >
+                    <a href="/contacto-empresas">
+                      <MessageCircle className="mr-2 h-4 w-4" />
+                      Hablar con un asesor
+                      <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-2" />
+                    </a>
+                  </Button>
+                </div>
               </div>
             );
           })}

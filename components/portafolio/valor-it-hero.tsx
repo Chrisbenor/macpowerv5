@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 interface ValorITHeroProps {
-  title: string;
+  title: React.ReactNode;
   subtitle: string;
   primaryCtaText: string;
   primaryCtaHref: string;

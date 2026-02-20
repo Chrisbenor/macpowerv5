@@ -12,6 +12,7 @@ import { ContactFormSection } from "@/components/nosotros/contact-form-section";
 import { StickyCTA } from "@/components/shared/sticky-cta";
 import { OffersSection } from "@/components/shared/offers-section";
 import { MacMiniBanner } from "@/components/mac-landing/mac-mini-banner";
+import { MacVisualBanner } from "@/components/mac-landing/mac-visual-banner";
 
 export const metadata = {
   title: "Mac para Empresas | MacPower - Apple Business Partner",
@@ -44,6 +45,8 @@ export default function MacParaEmpresasPage() {
         </section>
 
         <FeaturedCatalog />
+
+        <MacVisualBanner />
 
         {/* Case studies section */}
 

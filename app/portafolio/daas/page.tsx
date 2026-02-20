@@ -135,7 +135,7 @@ export default function DaaSPage() {
       />
       <FAQStructuredData items={terms} />
       <DaaSHero
-        title="Soluciones DaaS"
+        title={<><span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600">Soluciones </span>DaaS</>}
         subtitle="Tecnología bajo control, continuidad sin interrupciones."
         primaryCtaText="Cotizar DaaS"
         primaryCtaHref="#contacto"
@@ -170,12 +170,10 @@ export default function DaaSPage() {
       <ImageHighlight 
         imageSrc="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/banner-complemento-1500x600px-8aqmuqJ7n0EqBAiUMD5xJKkjWQjsRr.png"
         text="Menos interrupciones. Más control. Mejor previsibilidad."
+        className="min-h-[240px] md:min-h-[300px] lg:min-h-[360px] py-12 md:py-16"
       />
 
-      <ImageHighlight 
-        imageSrc="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/banner-complemento-1500x600px%20%281%29-JI3xYhm3H92cXaxauqOVrPFVySVN7E.png"
-        text="Seguridad y eficiencia sin compromisos."
-      />
+ 
 
       <AccordionSection 
         title="Términos y condiciones" 

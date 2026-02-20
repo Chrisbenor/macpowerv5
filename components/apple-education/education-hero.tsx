@@ -23,7 +23,7 @@ export function EducationHero() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-6 w-full pt-20">
         <div className="text-left max-w-2xl">
           <h1 className="mb-4 text-3xl font-bold leading-tight text-white drop-shadow-2xl md:text-4xl lg:text-5xl text-balance text-left">
-            Apple para Educación
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffe3] to-[#00a6d6]">Apple</span> para Educación
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 text-pretty leading-relaxed">
             Implementamos el ecosistema Apple en instituciones educativas de forma segura, ordenada y escalable, integrando Apple School Manager, MDM y dispositivos listos para el aula desde el primer día.

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 interface DaaSHeroProps {
-  title: string;
+  title: React.ReactNode;
   subtitle: string;
   primaryCtaText: string;
   primaryCtaHref: string;

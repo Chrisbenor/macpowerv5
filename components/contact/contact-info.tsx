@@ -28,10 +28,10 @@ export function ContactInfo() {
             <div>
               <p className="text-foreground">Bogotá, Colombia</p>
               <p className="text-sm text-muted-foreground">
-                Cra 15 #93-75, Oficina 501
+                Calle 74 # 15-80, Oficina 101
               </p>
               <p className="text-sm text-muted-foreground">
-                Edificio Tierra Firme
+                Edificio Osaka Center
               </p>
             </div>
           </div>
@@ -41,10 +41,10 @@ export function ContactInfo() {
             <div>
               <p className="text-foreground">Horario de atención</p>
               <p className="text-sm text-muted-foreground">
-                Lunes a Viernes: 8:00 AM - 6:00 PM
+                Lunes a Jueves: 8:00 AM - 5:30 PM
               </p>
               <p className="text-sm text-muted-foreground">
-                Sábados: 9:00 AM - 1:00 PM
+                Viernes: 8:00 AM - 5:00 PM
               </p>
             </div>
           </div>
