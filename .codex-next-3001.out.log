@@ -1,0 +1,18 @@
+
+> my-v0-project@0.1.0 dev
+> next dev -p 3001
+
+   ▲ Next.js 16.0.10 (Turbopack)
+   - Local:         http://localhost:3001
+   - Network:       http://192.168.20.39:3001
+   - Environments: .env.local
+
+ ✓ Starting...
+Creating turbopack project {
+  dir: 'C:\\Users\\coben\\OneDrive\\Desktop\\MacPower versiones\\Version 5',
+  testMode: true
+}
+ ✓ Ready in 8.7s
+ ○ Compiling / ...
+ GET / 200 in 9.3s (compile: 8.7s, render: 605ms)
+ GET / 200 in 367ms (compile: 120ms, render: 247ms)
