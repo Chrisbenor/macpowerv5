@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "Colaboración educativa",
   ],
   alternates: {
-    canonical: "/portafolio/viewsonic",
+    canonical: "/viewsonic",
   },
   robots: {
     index: true,
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ViewSonic & MacPower | Soluciones Visuales Empresariales",
     description: "Proyectores, pantallas interactivas y soluciones de colaboración ViewSonic con el respaldo experto de MacPower IT Solutions. Visite nuestro portafolio.",
-    url: "https://www.macpower.com.co/portafolio/viewsonic",
+    url: "https://www.macpower.com.co/viewsonic",
     siteName: "MacPower IT Solutions",
     images: [
       { 
@@ -66,9 +66,9 @@ const viewsonicKpis = [
 
 const viewsonicInterests = [
   { value: "proyectores", label: "Proyectores Láser DLP" },
-  { value: "interactivas", label: "Pantallas Interactivas ViewBoard" },
+  { value: "pantallasinteractivas", label: "Pantallas Interactivas ViewBoard" },
   { value: "monitores", label: "Monitores Profesionales" },
-  { value: "signage", label: "Digital Signage" },
+  { value: "digitalsignage", label: "Digital Signage" },
   { value: "varios", label: "Múltiples soluciones" },
   { value: "otro", label: "Otro" },
 ];

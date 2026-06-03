@@ -6,6 +6,15 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/portafolio/viewsonic',
+        destination: '/viewsonic',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig

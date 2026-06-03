@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Monitor, Projector, Layers, Tv2, ArrowRight, CheckCircle, Award, Wrench, ShieldCheck, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -30,7 +30,7 @@ const categories = [
     imageAlt: "Proyector láser ViewSonic en auditorio corporativo",
   },
   {
-    id: "interactivas",
+    id: "pantallasinteractivas",
     icon: Monitor,
     title: "Pantallas Interactivas ViewBoard",
     subtitle: "ViewBoard® · Colaboración inteligente",
@@ -73,7 +73,7 @@ const categories = [
     imageAlt: "Estación de trabajo con monitores profesionales ViewSonic",
   },
   {
-    id: "signage",
+    id: "digitalsignage",
     icon: Tv2,
     title: "Digital Signage",
     subtitle: "Pantallas comerciales e industriales",
@@ -101,12 +101,37 @@ export function ViewSonicProducts() {
   const cat = categories[active];
   const Icon = cat.icon;
 
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash) {
+        const index = categories.findIndex((c) => c.id === hash);
+        if (index !== -1) {
+          setActive(index);
+        }
+      }
+    };
+
+    // Check hash on initial load
+    handleHashChange();
+
+    // Listen to hashchange events
+    window.addEventListener("hashchange", handleHashChange);
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
   const handleTabChange = (i: number) => {
     if (i === active) return;
     setAnimating(true);
     setTimeout(() => {
       setActive(i);
       setAnimating(false);
+      // Update URL hash without causing a page jump/scroll
+      if (typeof window !== "undefined") {
+        window.history.pushState(null, "", `#${categories[i].id}`);
+      }
     }, 180);
   };
 
@@ -148,7 +173,7 @@ export function ViewSonicProducts() {
             return (
               <button
                 key={c.id}
-                id={`viewsonic-tab-${c.id}`}
+                id={c.id}
                 onClick={() => handleTabChange(i)}
                 aria-selected={isActive}
                 role="tab"

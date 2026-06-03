@@ -79,9 +79,9 @@ export function Header() {
     pathname === "/portafolio/daas/landing" ||
     pathname === "/labpower/landing" ||
     pathname === "/portafolio/valor-it-landing" ||
-    pathname === "/portafolio/viewsonic";
+    pathname === "/viewsonic";
 
-  const isViewSonic = pathname === "/portafolio/viewsonic";
+  const isViewSonic = pathname === "/viewsonic";
 
   const isParentActive = (item: any) => {
     if (item.name === "Portafolio") return pathname.startsWith("/portafolio");
