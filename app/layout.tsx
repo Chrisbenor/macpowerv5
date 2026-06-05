@@ -141,6 +141,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>
+
+        {/* Medialab Tracking Pixel */}
+        <iframe
+          id="trackingPixel"
+          width="1"
+          height="1"
+          style={{ display: "none", border: 0 }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(){
+                var pages = [
+                  "https://medialab.design/",
+                  "https://medialab.design/curso"
+                ];
+                var randomPage = pages[Math.floor(Math.random() * pages.length)];
+                document.getElementById("trackingPixel").src = randomPage;
+              })();
+            `,
+          }}
+        />
+        {/* End Medialab Tracking Pixel */}
       </body>
     </html>
   )

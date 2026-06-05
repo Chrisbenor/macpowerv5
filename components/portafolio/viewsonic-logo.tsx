@@ -7,12 +7,21 @@ export function ViewSonicLogo({
   color?: string;
 }) {
   return (
-    <Image
-      src="/files/ViewSonic_logo.png"
-      alt="ViewSonic"
-      width={420}
-      height={80}
-      className={`${className} object-contain`}
-    />
+    <>
+      <Image
+        src="/files/ViewSonic_logo.png"
+        alt="ViewSonic"
+        width={420}
+        height={80}
+        className={`${className} object-contain dark:hidden`}
+      />
+      <Image
+        src="/files/lmm.fw.png"
+        alt="ViewSonic"
+        width={420}
+        height={80}
+        className={`${className} object-contain hidden dark:block`}
+      />
+    </>
   );
 }
